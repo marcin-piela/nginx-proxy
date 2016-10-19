@@ -12,7 +12,7 @@ RUN apt-get update \
 RUN { \
       echo 'fastcgi_read_timeout 300;'; \
       echo 'client_max_body_size 100m;'; \
-    } > /etc/nginx/conf.d/default
+    } > /etc/nginx/vhost.d/default
 
 # Configure Nginx and apply fix for very long server names
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
