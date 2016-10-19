@@ -9,6 +9,11 @@ RUN apt-get update \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
 
+RUN { \
+      echo 'fastcgi_read_timeout 300;'; \
+      echo 'client_max_body_size 100m;'; \
+    } > /etc/nginx/conf.d/default
+
 # Configure Nginx and apply fix for very long server names
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
  && sed -i 's/^http {/&\n    server_names_hash_bucket_size 128;/g' /etc/nginx/nginx.conf
