@@ -9,7 +9,7 @@ RUN apt-get update \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
 
-RUN { \
+RUN mkdir /etc/nginx/vhost.d && { \
       echo 'fastcgi_read_timeout 300;'; \
       echo 'client_max_body_size 100m;'; \
     } > /etc/nginx/vhost.d/default
