@@ -353,3 +353,7 @@ server {
 
 {{ end }}
 {{ end }}
+
+{{ if (exists "/etc/nginx/vhost.d/custom") }}
+	include /etc/nginx/vhost.d/custom;
+{{ end }}
